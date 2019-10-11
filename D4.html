@@ -32,6 +32,8 @@
         }
       }
 
+      //return n1 == n2 ? n1 + n2 * 3  : n1 + n2
+
       /* EXERCISE 3
                       Write a function "crazyDiff" that computes the
                       absolute difference between a given number and 19.
@@ -41,11 +43,13 @@
 
       function crazyDiff(n1) {
         if (n1 > 19) {
-          return (19 - n1) * 3;
+          return Math.abs(n1 - 19) * 3;
         } else {
-          return 19 - n1;
+          return Math.abs(n1 - 19);
         }
       }
+
+      // return n1 > 19 ? Math.abs(n1 - 19) * 3 : Math.abs(n1-19)
 
       /* EXERCISE 4
                       Write a function "boundary" which accept an integer N and returns true if N is within 20 and 100 (included) or equal to 400.
@@ -58,6 +62,8 @@
           return false;
         }
       }
+
+      // return (N >= 20 && N <= 100 || N === 400)
 
       /* EXERCISE 5
                       Write a function "strivify" which accepts a string S. Add to S "Strive" in front of a given string, if the given string begins with "Strive" then return the original string.
@@ -77,9 +83,9 @@
 
       function check3and7(n1) {
         if (n1 % 3 === 0) {
-          return "Nr number os muliple by 3";
+          return "Nr number os multiple by 3";
         } else if (n1 % 7 === 0) {
-          return "Nr number os muliple by 7";
+          return "Nr number os multiple by 7";
         } else {
           return "the number is not multiple by 3 or 7";
         }
@@ -131,9 +137,8 @@
                       Write a function "giveMeRandom" which accepts a number n and returns an array containing n random numbers between 0 and 10
                       */
 
-      var arryNumbers = [];
-
       function giveMeRandom(n) {
+        var arryNumbers = [];
         for (var i = 0; i < n; i++) {
           arryNumbers.push(Math.floor(Math.random() * 11));
         }
@@ -160,24 +165,47 @@
                       */
 
       var shoppingCart = [{ price: 100, name: "T-shirt", id: "ID121", number: 131231 }, { price: 100, name: "Pants", id: "ID123", number: 5263369 }];
-      var sum = 0;
 
       function shoppingCartTotal() {
+        var sum = 0;
         for (var i = 0; i < shoppingCart.length; i++) {
           sum += shoppingCart[i].price;
         }
         return sum;
       }
       /* EXERCISE 13
-                      In your eCommerce you have an array of object called shoppingCart. In this array you have a number of objects with a price, name, id and number to be shipped.
+                      In your eCommerce you have an array of object called shoppingCart. In this array you h
+                      ave a number of objects with a price, name, id and number to be shipped.
                       Create a function "addToShoppingCart" which receives a new object and add it to shoppingCart and returns the number of items in the shoppingCart.
                       */
-      /* WRITE YOUR CODE HERE */
+      var shoppingCart = [{ price: 100, name: "T-shirt", id: "ID121", number: 131231 }, { price: 100, name: "Pants", id: "ID123", number: 5263369 }];
+
+      function addToShoppingCart() {
+        shoppingCart.push({ price: 1000, name: "Bike", id: "ID222", number: 52536 });
+        var items = 0;
+        for (var i = 0; i < shoppingCart.length; i++) {
+          items += shoppingCart[i].name;
+        }
+        return items + " ";
+      }
       /* EXERCISE 14
                       In your eCommerce you have an array of object called shoppingCart. In this array you have a number of objects with a price, name, id and number to be shipped.
                       Create a function "maxShoppingCart" which receives the shoppingCart array and returns the most expensive item in the array.
                       */
-      /* WRITE YOUR CODE HERE */
+      var shoppingCart = [
+        { price: 100, name: "T-shirt", id: "ID121", number: 131231 },
+        { price: 200, name: "Pants", id: "ID123", number: 5263369 },
+        { price: 22000, name: "Pants", id: "ID123", number: 5263369 },
+        { price: 88800, name: "Pants", id: "ID123", number: 5263369 },
+      ];
+
+      function maxShoppingCart() {
+        var max = 0;
+        for (var i = 0; i < shoppingCart.length; i++) {
+          max = Math.max(shoppingCart[i].price);
+        }
+        return "The items there cost most is " + max;
+      }
 
       /* EXERCISE 15
                       In your eCommerce you have an array of object called shoppingCart. In this array you have a number of objects with a price, name, id and number to be shipped.
@@ -190,8 +218,6 @@
                       Create a function "loopUntil" which receives an integer X between 0 and 9.
                       The function loops and prints a random number between 0 and 9 until the random number is bigger than X three times in a row.
                       */
-
-      /* WRITE YOUR CODE HERE */
 
       /* EXERCISE 17
                       Write a function "average" which receives an array and return the average value. The function automatically skips non-numeric entries in the array.
